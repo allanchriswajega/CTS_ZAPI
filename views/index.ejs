@@ -1,6 +1,16 @@
 
 
 <html>
+
+<% if (!isAuthenticated) { %>
+<script type="text/javascript">
+    <!--
+    window.location = "./login"
+    //-->
+</script>
+<% } else { %>
+x
+<% } %>
 <head>
     <title>Zapi Server!</title>
     <link rel="stylesheet" type="text/css" href="styles/index.css"/>
@@ -51,13 +61,4 @@ vcvcvcvc
 
 
 
-<% if (!isAuthenticated) { %>
-<script type="text/javascript">
-    <!--
-    window.location = "./login"
-    //-->
-</script>
-<% } else { %>
-x
-<% } %>
 </html>
