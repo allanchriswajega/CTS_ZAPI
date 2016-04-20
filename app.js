@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //mongo database
 var mongoose = require('mongoose/');
 
-mongoose.connect('mongodb://root:VTWeJA9K@104.197.33.187:/cts_db');
+mongoose.connect('mongodb://root:VTWeJA9K@127.0.0.1:8888/cts_db');
 var Schema = mongoose.Schema;
 var UserDetail = new Schema({
       username: String,
