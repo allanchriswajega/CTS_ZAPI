@@ -11,9 +11,10 @@ var expressSession =require('express-session');
 app.use(express.static(path.join(__dirname, 'public')));
 
 //mongo database
+
 var mongoose = require('mongoose/');
 
-mongoose.connect('mongodb://root:VTWeJA9K@127.0.0.1:8888/cts_db');
+mongoose.connect('mongodb://wac:matilda@104.197.33.187:27017/cts');
 var Schema = mongoose.Schema;
 var UserDetail = new Schema({
       username: String,
@@ -22,10 +23,6 @@ var UserDetail = new Schema({
       collection: 'userInfo'
     });
 var UserDetails = mongoose.model('userInfo', UserDetail);
-
-
-
-
 
 
 
