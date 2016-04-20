@@ -11,7 +11,7 @@
 </body>
 
     <% if (!isAuthenticated) { %>
-    <a href="/login">Login</a>
+   window.location.replace('/login');
      <% } else { %>
     Hello allan
     <a href="/logout">Log Out here</a>
