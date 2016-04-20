@@ -1,16 +1,39 @@
 
-<!DOCTYPE html>
+
 <html>
 <head>
-   <title>Zapi Server!</title>
-   <link rel="stylesheet" type="text/css" href="styles/index.css"/>
+    <title>Zapi Server!</title>
+    <link rel="stylesheet" type="text/css" href="styles/index.css"/>
 </head>
 
 
 <body>
+<div id="header">
+     <div class="logo">
+         <a href="#">Zapi<span>Control Tower</span></a>
+     </div>
+    <div class="lout">
+        <a href="/logout">Sign<span>out</a>
+    </div>
 
 
-TEST
+</div>
+
+<div id="container">
+    <div class="sidebar">
+         <ul id="nav">
+             <li><a class="selected" href="#">Dashboard</a> </li>
+             <li><a href="#">Aviation Statistics</a> </li>
+             <li><a href="#">Accounts</a> </li>
+             <li><a href="#">Settings</a> </li>
+             <li><a href="#">Users</a> </li>
+
+         </ul>
+    </div>
+    <div class="content">
+vcvcvcvc
+    </div>
+</div>
 
 
 
@@ -31,13 +54,13 @@ TEST
 
 
 
-    <% if (!isAuthenticated) { %>
+<% if (!isAuthenticated) { %>
 <script type="text/javascript">
     <!--
     window.location = "./login"
     //-->
 </script>
-     <% } else { %>
-      <a href="/logout">Log Out here</a>
-    <% } %>
+<% } else { %>
+
+<% } %>
 </html>
