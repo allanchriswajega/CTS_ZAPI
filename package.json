@@ -1,0 +1,22 @@
+{
+  "name": "Zapi",
+  "version": "0.0.0",
+  "private": true,
+
+  "dependencies": {
+     "express": "~4.13.1",    
+    
+    "mongoose": "*",
+    "mongodb": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+     "ejs": "*",
+     "body-parser": "*",
+     "cookie-parser": "*",
+     "express-session": "*"
+
+
+
+  }
+}
