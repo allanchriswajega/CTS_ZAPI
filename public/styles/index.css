@@ -83,14 +83,14 @@ ul#nav li a{
 
 }
 ul#nav li a:hover{
-	background-color: rgba(26, 238, 171, 0.54);
+	background-color: #2ECC71  ;
 	color: #ffffff;
 	padding-left: 30px ;
 
 
 }
 ul#nav li a.selected{
-	background-color: rgba(26, 238, 171, 0.54);
+	background-color: #2ECC71  ;
 	color: #ffffff;
 }
 .content{
