@@ -14,12 +14,33 @@ body {
 a {
 	text-decoration: none ;
 }
+div#hr{
+	width: 100%;
+	height: 10px;
+	background-color: rgb(33, 74, 75);
+	margin:0 auto;
+}
 div#header {
 
 	width: 100%;
 	height: 50px;
-	background-color: #2980b9;
-	margin: 0 auto;
+	background-color: rgb(23, 45, 46);
+
+}
+.logo {
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
+
+}
+.logo a {
+	font-size: 1.8em;
+	color: #ffffff;
+}
+.logo a span {
+	font-size: 0.6em;
+	font-weight: 300;
+
 }
 .lout{
 	float: right;
@@ -27,22 +48,10 @@ div#header {
 	margin-right: 10px;
 }
 .lout a{
-	font-size: 0.9em;
+	font-size: 0.98em;
 	color: #ffffff;
 }
-.logo {
-	float: left;
-	margin-top: 10px;
-	margin-left: 10px;
-}
-.logo a {
-	font-size: 1.3em;
-	color: #ffffff;
-}
-.logo a span {
-	font-weight: 300;
 
-}
 div#container{
 	width: 100%;
 	margin: 0 auto;
@@ -50,7 +59,7 @@ div#container{
 .sidebar{
 	width: 250px;
 	height: 100%;
-	background-color: rgba(152, 11, 8, 1);
+	background-color: rgb(32, 80, 81);
 	float: left;
 }
 ul#nav{
@@ -65,8 +74,8 @@ ul#nav li a{
 	color: #ccc;
 	display: block;
 	padding: 10px;
-	font-size: 0.8em;
-	border-bottom: 1px solid #0A0A0A;
+	font-size: 0.85em;
+	border-bottom: 1px solid rgb(5, 10, 11);
 	-webkit-transition: 0.2s;
 	-moz-transition: 0.2s;
 	-o-transition: 0.2s;
@@ -74,12 +83,14 @@ ul#nav li a{
 
 }
 ul#nav li a:hover{
-	background-color: #030303;
+	background-color: rgba(26, 238, 171, 0.54);
 	color: #ffffff;
+	padding-left: 30px ;
+
 
 }
 ul#nav li a.selected{
-	background-color: #030303;
+	background-color: rgba(26, 238, 171, 0.54);
 	color: #ffffff;
 }
 .content{
@@ -92,7 +103,8 @@ ul#nav li a.selected{
 }
 .content p{
 	color: #424242;
-	font-size: 0.73em;
+	font-size: 0.93em;
+
 }
 
 
