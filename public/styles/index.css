@@ -92,6 +92,7 @@ ul#nav li a:hover{
 ul#nav li a.selected{
 	background-color: #2ECC71  ;
 	color: #ffffff;
+
 }
 .content{
 	width: auto;
