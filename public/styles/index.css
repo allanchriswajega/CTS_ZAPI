@@ -57,6 +57,7 @@ div#header {
 div#container{
 	width: 100%;
 	margin: 0 auto;
+
 }
 .sidebar{
 	margin-top: 50.3px;
@@ -103,6 +104,7 @@ ul#nav li a.selected{
 	height: 100%;
 	background-color: #ffffff;
 	padding: 15px ;
+	
 
 }
 .content p{
@@ -115,118 +117,23 @@ div#content-top{
 	color: #ffffff;
 	margin-top: 40px;
 	width: 100%;
-	background-color: #2ECC71;
-	border-radius: 15px;
+	background-color: #e74c3c;
+	border-radius: 5px;
 	padding-right: 10px;
 
+}
+#content-top p{
+	color: #ffffff;
 }
 div#ct-t{
 	margin-top: 14px;
 	margin-left: 35px;
 
 }
-div#box{
-	margin-top: 10px;
-	width: 100%;
-	height: 100%;
-	background-color: #2E86C1;
-	border-radius: 15px;
-	position: relative;
-}
-
-div#footer{
-	float: bottom;
-	width: 100%;
-	height: 50px;
-	margin-top: 10px;;
-	margin-bottom: 12px;
-	background-color: #2ECC71;
-	position:absolute;
-    bottom:0px;	
-	border-radius: 10px;
-	
-	position : fixed;
-	
-}
 
 
-/*----- Tabs -----*/
-div#x2{
-	
 
-	
 
-}
-.tabs {
-	width: 90%;
-	height: 98%;
-	margin-top: 15px;
-	margin-left: 40px;
-	
-    display:inline-block;
-    position: absolute;
-    
-}
- 
-    /*----- Tab Links -----*/
-    /* Clearfix */
-    .tab-links:after {
-        display:block;
-        clear:both;
-        content:'';
-    }
-    div#CdMssg{
-    	height: 90px;
-    }
-    .messages{
-    	height: 880px;
-    }
- 
-    .tab-links li {
-        margin:0px 5px;
-        float:left;
-        list-style:none;
-    }
- 
-        .tab-links a {
-            padding:9px 15px;
-            display:inline-block;
-            border-radius:3px 3px 0px 0px;
-            background:#7FB5DA;
-            font-size:16px;
-            font-weight:600;
-            color:#4c4c4c;
-            transition:all linear 0.15s;
-        }
- 
-        .tab-links a:hover {
-            background:#a7cce5;
-            text-decoration:none;
-        }
- 
-    li.active a, li.active a:hover {
-        background:#fff;
-        color:#4c4c4c;
-    }
- 
-    /*----- Content of Tabs -----*/
-    .tab-content {
-        padding:15px;
-        border-radius:3px;
-        box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
-        background:#fff;
-    }
- 
-        .tab {
-        	
-            display:none;
-            height: 60%;
-            margin-bottom: 30px;
-        }
- 
-        .tab.active {
-            display:block;
-        }
       #message{
       	padding-left: 20px;
       	margin-left: 15px;
@@ -240,3 +147,17 @@ div#x2{
       #l1{
       	color: #e74c3c;
       }
+      div#footer{
+	float: bottom;
+	width: 100%;
+	height: 50px;
+	margin-top: 10px;;
+	margin-bottom: 12px;
+	background-color: #2ECC71;
+	position:absolute;
+    bottom:0px;	
+	border-radius: 10px;
+	
+	position : fixed;
+	
+}
