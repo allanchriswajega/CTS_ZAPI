@@ -13,15 +13,21 @@
 <head>
     <title>Zapi Server!</title>
     <link rel="stylesheet" type="text/css" href="styles/index.css"/>
-    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    
+    <script src="js/jquery.js"></script>
+    <script src="js/client.js"></script>
+    
 </head>
 
 
 <body>
-<div id="hr">
-</div>
+
 <div id="header">
      <div class="logo">
+         <img src = "images/bars.png"  alt = />
          <a href="#">Zapi<span> Control Tower</span></a>
      </div>
     <div class="lout">
@@ -33,22 +39,62 @@
 <div id="container">
     <div class="sidebar">
          <ul id="nav">
-             <li><a class="selected" href="#"><img src=""/>Dashboard</a> </li>
+             <li><a class="selected" href="#tab1"><img src=""/>Dashboard</a> </li>
              <li><a href="#">Aviation Statistics</a> </li>
-             <li><a href="#">Accounts</a> </li>
-             <li><a href="#">Settings</a> </li>
-             <li><a href="#">Users</a> </li>
+             <li><a href="#tab2">Accounts</a> </li>
+             <li><a href="#tab3">Settings</a> </li>
+             <li><a href="#tab2">Users</a> </li>
 
          </ul>
     </div>
     <div class="content">
-        <h1>Dashboard</h1>
-        <p>Welcome to Zapi Online Control Tower Active Sky</p>
+    	<div id="content-top">
+    		<div id="ct-t">
+    			<h2>Dashboard</h2>
+            <p>Welcome to Zapi Online Control Tower Active Sky</p>
+    		</div>    		
+    	</div>
+
+        
+
         <div id="box">
-            <div class="box-top">News</div>
+            <div class="tabs">
+    <ul class="tab-links">
+        <li class="active">
+        <a href="#tab1">Dashboard</a></li>
+        <li><a href="#tab2">Accounts</a></li>
+        <li><a href="#tab3">Settings</a></li>
+        <li><a href="#tab4">Users</a></li>
+    </ul>
 
+    <div class="tab-content">
+        <div id="tab1" class="tab active">
+            <label id="l1"><h1>Data Recieved From Aircrafts</h1></label>
+            	
+            <textarea id="message"></textarea>
+            
 
+            
+        </div>
 
+        <div id="tab2" class="tab">
+            <p>Tab #2 content goes here!</p>
+           
+        </div>
+
+        <div id="tab3" class="tab">
+           
+        </div>
+
+        <div id="tab4" class="tab">
+          
+        </div>
+    </div>
+</div>
+        </div>
+
+        <div id="footer">
+        
         </div>
     </div>
 </div>
@@ -58,10 +104,28 @@
 
 </body>
 
+<script >
+$(document).ready(function() {
+    jQuery('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = jQuery(this).attr('href');
+ 
+        // Show/Hide Tabs
+        jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+ 
+        // Change/remove current tab to active
+        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+ 
+        e.preventDefault();
+    });
+});
 
 
-
-
+</script>
+    
+<script>
+	
+	listen();
+</script>
 
 
 

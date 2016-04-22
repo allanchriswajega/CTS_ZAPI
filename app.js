@@ -1,5 +1,8 @@
 var express =require('express');
 var app = express();
+var server = require('http').createServer(app);
+//socket connection
+var io = require('socket.io').listen(server);
 var path = require('path');
 var passport =require('passport');
 var passportLocal =require('passport-local');
@@ -10,12 +13,13 @@ var expressSession =require('express-session');
 //Public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 //mongo database
 
 var mongoose = require('mongoose/');
 
-mongoose.connect('mongodb://cts:cts123@104.197.33.187:27017/cts');
-//mongoose.connect('mongodb://127.0.0.1:27017/cts');
+//mongoose.connect('mongodb://cts:cts123@104.197.33.187:27017/cts');
+mongoose.connect('mongodb://127.0.0.1:27017/cts');
 var Schema = mongoose.Schema;
 var UserDetail = new Schema({
       username: String,
@@ -114,7 +118,22 @@ res.redirect('/');
 //app port
 var port = process.env.PORT || 8080;
 
-
-app.listen(port, function(){
+server.listen(port, function(){
  console.log('http://localhost'+port+'/');
+
+});
+
+//*******working with socket.io********
+//1. when the server gets a connection
+io.sockets.on('connection', function(socket){
+ console.log('Server got a new connection');
+io.sockets.emit('welcome','welcome to the cts sesdssdhjjdfsfhsjdfhhsjfhjshdfsjfsjfhds');
+//recieved  data from clients
+socket.on('new data', function(data)
+{
+  io.sockets.emit('mamaammamam');
+
+});
+
+
 });
