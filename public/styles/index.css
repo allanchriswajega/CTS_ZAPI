@@ -47,7 +47,7 @@ div#header {
 .lout{
 	float: right;
 	margin-top: 10px;
-	margin-right: 10px;
+	margin-right: 24px;
 }
 .lout a{
 	font-size: 0.98em;
@@ -67,6 +67,7 @@ div#container{
 	float: left;
 	position : fixed;
 }
+
 ul#nav{
 
 
@@ -102,7 +103,7 @@ ul#nav li a.selected{
 	width: auto;
 	margin-left: 250px;
 	height: 100%;
-	background-color: #ffffff;
+	background-color: white;
 	padding: 15px ;
 	
 
@@ -117,13 +118,42 @@ div#content-top{
 	color: #ffffff;
 	margin-top: 40px;
 	width: 100%;
-	background-color: #e74c3c;
+	background-color: #cc1229;
 	border-radius: 5px;
 	padding-right: 10px;
 
 }
 #content-top p{
 	color: #ffffff;
+}
+div#content-bottom{
+	color: #ffffff;
+	margin-top: 1px;
+	width: 100%;
+	height: 90%;
+	border-radius: 5px;
+	padding-right: 10px;
+	border-style: solid;
+	border-color: #ff0000;
+	border-width: 0.01em;
+}
+div#cb_right{
+	padding: 10px;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	margin-right: 6px;
+    float: right;
+	background-color: #eaefe8;
+	height: 95%;
+	width: 30%;
+	border-radius:5px;
+	position: relative;
+
+}
+#h2a{
+	color: #d40608;
+	margin: auto;
+	padding-left: 30px;
 }
 div#ct-t{
 	margin-top: 14px;
@@ -135,14 +165,17 @@ div#ct-t{
 
 
       #message{
+		  margin-top: 5px;
+		  padding-top: 10px;
       	padding-left: 20px;
-      	margin-left: 15px;
+      	margin-left: 5px;
       	border-radius:10px;
-      	height: 90%;
-      	width: 96%;
-      	font-size: 1.8em;
+      	height: 92%;
+      	width: 300px;
+      	font-size: 0.9em;
+		  color: white;
       
-      	background-color: #bdc3c7;
+      	background-color: #000000;
       }
       #l1{
       	color: #e74c3c;
@@ -153,11 +186,53 @@ div#ct-t{
 	height: 50px;
 	margin-top: 10px;;
 	margin-bottom: 12px;
-	background-color: #2ECC71;
+	background-color: #cc2c2d;
 	position:absolute;
     bottom:0px;	
 	border-radius: 10px;
 	
 	position : fixed;
 	
+}
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	*zoom: 1;
+}
+.holder{
+	text-align:center;
+}
+.column{
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+	width:auto;
+}
+.left{
+	margin-top: 10px;
+	height: 80%;
+	background-color:white;
+	float:left;
+	width: 60%;
+}
+.middle{
+	background-color:white;
+	margin:0 auto;
+}
+.right{
+	margin-top: 10px;
+	height: 80%;
+	background-color: white;
+	float:right;
+	width: 40%;
+}
+div#uv-div{
+	margin-bottom: auto;
+	height: auto;
 }

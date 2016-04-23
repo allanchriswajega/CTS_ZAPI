@@ -11,19 +11,22 @@
 <% } else { %>
 <% } %>
 <head>
-    <title>Zapi Server!</title>
+    <title>Zapi Online Control Tower</title>
     <link rel="stylesheet" type="text/css" href="styles/index.css"/>
+    <link href="styles/c3.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     
     <script src="js/jquery.js"></script>
     <script src="js/client.js"></script>
+    <script type="text/javascript" src="js/d3.js"></script>
+    <script type="text/javascript" src="js/uvcharts.js"></script>
     
 </head>
 
 
-<body>
+<body >
 
 <div id="header">
      <div class="logo">
@@ -39,7 +42,8 @@
 <div id="container">
     <div class="sidebar">
          <ul id="nav">
-             <li><a class="selected" href="#tab1"><img src=""/>Dashboard</a> </li>
+
+             <li><a class="selected" href=""><span class='face'>Dashboard</span>d</a> </li>
              <li><a href="#">Aviation Statistics</a> </li>
              <li><a href="#tab2">Accounts</a> </li>
              <li><a href="#tab3">Settings</a> </li>
@@ -51,14 +55,29 @@
     	<div id="content-top">
     		<div id="ct-t">
     			<h2>Dashboard</h2>
-
-    		</div>
+       		</div>
     	</div>
+
+
+        <div class="clearfix holder">
+            <div class="column left">
+                <div id="uv-div"></div>
+            </div>
+            <div class="column right">
+                <h2 id="h2a">Server Log</h2>
+                <textarea id="message"></textarea>
+            </div>
+        </div>
+
+
+
+
+
 
 
     </div>
 
-
+</div>
 
 
 </body>
@@ -77,14 +96,12 @@ $(document).ready(function() {
         e.preventDefault();
     });
 });
-
-
 </script>
     
-<script>
-	
+<script>	
 	listen();
 </script>
+
 
 
 

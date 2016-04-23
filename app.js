@@ -126,12 +126,15 @@ server.listen(port, function(){
 //*******working with socket.io********
 //1. when the server gets a connection
 io.sockets.on('connection', function(socket){
+
  console.log('Server got a new connection');
-io.sockets.emit('welcome','welcome to the cts sesdssdhjjdfsfhsjdfhhsjfhjshdfsjfsjfhds');
+
+io.sockets.emit('welcome','welcome to the cts the online control server');
+
 //recieved  data from clients
 socket.on('new data', function(data)
 {
-  io.sockets.emit('mamaammamam');
+  io.sockets.emit('hello');
 
 });
 
