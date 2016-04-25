@@ -28,27 +28,29 @@ function listen (){
 	var socket =io.connect();
 	var $message = $('#message');
 
+	//--------Welcomoe message from the server ---------------------------
 	socket.on('welcome',function(data){
 		var nosw = new Date();
 
-		init();
+
 		$message.append('>>'+String(nosw)+' >>'+data+'\n');
-
-
-
 		i = i + 10;
-		myLineChart.addData([i], new Date().getTime());
+		//myLineChart.addData([i], new Date().getTime());
+	});
+	//----------------------END OF CODE ----------------------------------
 
+
+	//--------------------NEW DATA FROM THE AEROPLANE --------------
+	socket.on('new_data', function(data){
+		var obj = JSON.parse(JSON.stringify(data));
+		//myLineChart.addData([i], new Date().getTime());
+		myLineChart.addData([obj.spd], new Date().getTime());
 
 	});
 
-}
 
-
-
-var init = function () {
-
-
-
+	//------------------------END OF CODE -------------------------------
 
 }
+
+

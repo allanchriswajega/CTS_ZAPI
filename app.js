@@ -221,7 +221,7 @@ app.get('/client', function(req, res){
 
         io.sockets.emit('welcome','have recieved new data from Aircraft!!');
 
-        io.sockets.emit('Ndata',obj);
+        io.sockets.emit('new_data',obj);
 
         //Storing data to mysql
         // var mysql = require("mysql");
