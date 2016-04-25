@@ -1,25 +1,49 @@
+
+//****************************************HEADER *****************************************************************
+//****************************************************************************************************************
+//****************************************************************************************************************
+//****************************************************************************************************************
+// -------------------INNITAL SET UP OF SERVER -----------------------------------
 var express =require('express');
 var app = express();
 var server = require('http').createServer(app);
-//socket connection
+// SOCKET.IO
 var io = require('socket.io').listen(server);
+
 var path = require('path');
 var passport =require('passport');
 var passportLocal =require('passport-local');
 var bodyParse =require('body-parser');
 var cookieParser =require('cookie-parser');
 var expressSession =require('express-session');
+//for parsing aircraft data
+var url = require('url');
+//-------------------- END OF CODE -------------------------------------------------
 
-//Public directory
+
+//--------------------Public directory------------------------------------
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-//mongo database
+//engine
+app.set('view engine','ejs');
+//------------------------- END OF CODE --------------------------------------------------
 
+
+//-------------------APP MIDDLE WARE --------------------------------------
+app.use(bodyParse.urlencoded({ extended: false}));
+app.use(cookieParser());
+app.use(expressSession({secret: process.env.SESSION_SCRET || 'secret',
+    resave: false,
+    saveUninitialized: false
+}));
+//-------------------END OF CODE -----------------------------------------
+
+
+//-------------------mongo database---------------------------------------
 var mongoose = require('mongoose/');
-
-mongoose.connect('mongodb://cts:cts123@104.197.33.187:27017/cts');
-//mongoose.connect('mongodb://127.0.0.1:27017/cts');
+//mongoose.connect('mongodb://cts:cts123@104.197.33.187:27017/cts');
+mongoose.connect('mongodb://127.0.0.1:27017/cts');
 var Schema = mongoose.Schema;
 var UserDetail = new Schema({
       username: String,
@@ -28,22 +52,12 @@ var UserDetail = new Schema({
       collection: 'userInfo'
     });
 var UserDetails = mongoose.model('userInfo', UserDetail);
+//---------------------------END OF CODE --------------------------------------
 
 
 
-//engine
-app.set('view engine','ejs');
 
-
-//User niddlewware
-app.use(bodyParse.urlencoded({ extended: false}));
-app.use(cookieParser());
-app.use(expressSession({secret: process.env.SESSION_SCRET || 'secret',
-resave: false,
-saveUninitialized: false
-}));
-
-//registering the passport middleware
+//-------------------------PASSPORT AUTHENTICATION FRAMEWORK--------------------------------
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -81,39 +95,161 @@ passport.deserializeUser(function(id, done){
 	//query db
 	done(null, {id: id, name: id});
 });
+//-------------------------------- END OF CODE -----------------------------------
+//*********************************************************************************************************************
+//*********************************************************************************************************************
+//*********************************************************************************************************************
+//*********************************************************************************************************************
 
-//route to the main page
+
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+//**********************************WORKING WITH SOCKET.IO***********************************8********
+//********************************************************************************************************
+//********************************************************************************************************
+//1. when the server gets a connection
+io.sockets.on('connection', function(socket){
+
+    console.log('Server got a new connection');
+
+    io.sockets.emit('welcome','welcome to the cts the online control server');
+
+//recieved  data from clients
+    socket.on('new data', function(data)
+    {
+        io.sockets.emit('hello');
+
+    });
+
+
+});
+//********************************************************************************************************
+//********************************************************************************************************
+//********************************************************************************************************
+//********************************************************************************************************
+
+
+
+
+//************************************** ROUTINGS ********************************************************************
+//********************************************************************************************************
+//********************************************************************************************************
+//-----------------------------route to the main page----------------------------------------------------
 app.get('/', function(req,res){
 	res.render('index',{isAuthenticated:req.isAuthenticated(),
 		user:req.user
 	});
 
 });
+//-------------------------------END OF CODE--------------------------------------------------------------
 
-//route to the login page
+
+//----------------------------------route to the login page------------------------------------------------
 app.get('/login',function(req,res){
 	res.render('login');	
 });
 
-//login for post method
+//-------------------------------END OF CODE--------------------------------------------------------------
+
+//--------------------------login for post method---------------------------------------------------------
 app.post('/login', passport.authenticate('local',{
     successRedirect: '/',
     failureRedirect: '/loginFailure'
   })
 );
+//--------------------------- END OF CODE -----------------------------------------------------------------
 
-//login Failure
+//---------------------------login Failure---------------------------------------------------------------
 app.get('/loginFailure', function(req, res, next) {
   res.send('Failed to authenticate');
 });
+//--------------------------END OF CODE -----------------------------------------------------------------
 
-//logout
+//---------------------------logout----------------------------------------------------------------
 app.get('/logout', function(req, res){
 req.logout();
 res.redirect('/');
+});
+//-------------------------END OF CODE --------------------------------------------------------------
+
+//---------------------------WORKING WITH THE AIRCRAFT SYSTEMS ----------------------------------
+app.get('/client', function(req, res){
+    var otherObject ={sM:"W",AR:"",Ws:"2"};
+    var json = JSON.stringify(otherObject);
+    var queryData = url.parse(req.url, true).query;
+
+
+    //checking for the action
+    console.log("Action..."+queryData.action);
+    if (queryData.action === "auth")
+    {
+
+        if ((queryData.uname === "wac") && (queryData.pword === "wac"))
+        {
+
+            console.log("-----RECHED HIA-------");
+            io.sockets.emit('welcome','New Aircraft has loged onto the system');
+            io.sockets.emit('new_plane','we have a new plane');
+
+            res.end(json);
+
+        }
+        else
+        {
+            console.log(queryData.uname );
+
+            res.end("Access Denied!!!\n");
+            io.sockets.emit('welcome','Aircraft has been denied access to the system!!!');
+
+
+        }
+
+    }
+
+    //Data Uploaded from the server
+    else if (queryData.action === "DataUpload")
+    {
+        var cdata ={lg:""+queryData.lg+"",le:""+queryData.le+"",spd:""+queryData.speed+"",alt:""+queryData.altitude+"",pre:""+queryData.pressure+"",vol:""+queryData.voltage+""};
+        var otheddd ={sM:"W",AR:"",Ws:"2"};
+        var obj = JSON.parse(JSON.stringify(cdata));
+        console.log("Parsed data!!!!");
+        console.log("Current Aircraft longitude..."+obj.lg);
+        console.log("Current Aircraft latitude..."+obj.le);
+        console.log("Current Aircraft speed..."+obj.spd);
+        console.log("Current Aircraft altitude..."+obj.alt);
+        console.log("Current Aircraft pressure..."+obj.pre);
+        console.log("Current Aircraft Voltage..."+obj.vol);
+
+        io.sockets.emit('welcome','have recieved new data from Aircraft!!');
+
+        io.sockets.emit('Ndata',obj);
+
+        //Storing data to mysql
+        // var mysql = require("mysql");
+
+// First you need to create a connection to the db
+
+
+
+
+    }
+
+    else {
+
+        res.end("Hello,what do u want from the server????\n");
+
+    }
 
 
 });
+
+//--------------------------END OF CODE ---------------------------------------------------
+
+//******************************************************************************************************************
+//******************************************************************************************************************
+//******************************************************************************************************************
+//******************************************************************************************************************
+
+
 
 //app port
 var port = process.env.PORT || 8081;
@@ -123,20 +259,3 @@ server.listen(port, function(){
 
 });
 
-//*******working with socket.io********
-//1. when the server gets a connection
-io.sockets.on('connection', function(socket){
-
- console.log('Server got a new connection');
-
-io.sockets.emit('welcome','welcome to the cts the online control server');
-
-//recieved  data from clients
-socket.on('new data', function(data)
-{
-  io.sockets.emit('hello');
-
-});
-
-
-});

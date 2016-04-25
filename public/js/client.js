@@ -1,12 +1,44 @@
 function listen (){
-var socket =io.connect();
-	var $message = $('#message');
 
+	// Get context with jQuery - using jQuery's .get() method.
+
+	var data;
+	var ctx = $("#myChart").get(0).getContext("2d");
+// This will get the first returned node in the jQuery collection.
+ var i = 10;
+	var data = {
+		labels: [],
+		datasets: [
+			{
+				label: "Aeroplane Speed",
+				fillColor: "rgba(220,220,220,0.2)",
+				strokeColor: "rgba(220,220,220,1)",
+				pointColor: "rgba(220,220,220,1)",
+				pointStrokeColor: "#cc1229",
+				pointHighlightFill: "#cc1229",
+				pointHighlightStroke: "rgba(220,220,220,1)",
+				data: []
+			}
+		]
+	};
+	var myLineChart = new Chart(ctx).Line(data);
+
+
+
+	var socket =io.connect();
+	var $message = $('#message');
 
 	socket.on('welcome',function(data){
 		var nosw = new Date();
+
 		init();
 		$message.append('>>'+String(nosw)+' >>'+data+'\n');
+
+
+
+		i = i + 10;
+		myLineChart.addData([i], new Date().getTime());
+
 
 	});
 
@@ -15,35 +47,8 @@ var socket =io.connect();
 
 
 var init = function () {
-	var graphdef = {
-		categories : ['uvCharts', 'Matisse', 'SocialByWay'],
-		dataset : {
-			'uvCharts' : [
-				{ name : '2008', value: 15},
-				{ name : '2009', value: 28},
-				{ name : '2010', value: 42},
-				{ name : '2011', value: 88},
-				{ name : '2012', value: 100},
-				{ name : '2013', value: 143}
-			],
-			'Matisse' : [
-				{ name : '2008', value: 15},
-				{ name : '2009', value: 28},
-				{ name : '2010', value: 42},
-				{ name : '2011', value: 88},
-				{ name : '2012', value: 100},
-				{ name : '2013', value: 143}
-			],
-			'SocialByWay' : [
-				{ name : '2008', value: 15},
-				{ name : '2009', value: 28},
-				{ name : '2010', value: 42},
-				{ name : '2011', value: 88},
-				{ name : '2012', value: 100},
-				{ name : '2013', value: 143}
-			]
-		}
-	};
-	var ChartObject = uv.chart('Pie',graphdef);
+
+
+
 
 }
