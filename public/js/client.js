@@ -1,13 +1,5 @@
 function listen (){
 
-	// Get context with jQuery - using jQuery's .get() method.
-
-
-
-
-	
-// This will get the first returned node in the jQuery collection.
-
 	var data1 = {
 		labels: [],
 		datasets: [
