@@ -2,11 +2,13 @@ function listen (){
 
 	// Get context with jQuery - using jQuery's .get() method.
 
-	var data;
-	var ctx = $("#myChart").get(0).getContext("2d");
+
+
+
+	
 // This will get the first returned node in the jQuery collection.
- var i = 10;
-	var data = {
+
+	var data1 = {
 		labels: [],
 		datasets: [
 			{
@@ -21,7 +23,13 @@ function listen (){
 			}
 		]
 	};
-	var myLineChart = new Chart(ctx).Line(data);
+
+
+	//airspeeb line chart
+	var ctx1 = document.getElementById("myChart1").getContext("2d");
+	var myLineChart1 = new Chart(ctx1).Line(data1);
+
+
 
 
 
@@ -34,8 +42,7 @@ function listen (){
 
 
 		$message.append('>>'+String(nosw)+' >>'+data+'\n');
-		i = i + 10;
-		//myLineChart.addData([i], new Date().getTime());
+
 	});
 	//----------------------END OF CODE ----------------------------------
 
@@ -43,14 +50,16 @@ function listen (){
 	//--------------------NEW DATA FROM THE AEROPLANE --------------
 	socket.on('new_data', function(data){
 		var obj = JSON.parse(JSON.stringify(data));
-		//myLineChart.addData([i], new Date().getTime());
-		myLineChart.addData([obj.spd], new Date().getTime());
+
+		//speed graph
+		myLineChart1.addData([obj.spd], new Date().getTime());
+
 
 	});
-
 
 	//------------------------END OF CODE -------------------------------
 
 }
+
 
 

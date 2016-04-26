@@ -15,8 +15,6 @@
     <link rel="stylesheet" type="text/css" href="styles/index.css"/>
       <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-
-
     <script src="js/jquery.js"></script>
     <script src="js/client.js"></script>
     <script type="text/javascript" src="http://www.chartjs.org/assets/Chart.js"></script>
@@ -41,10 +39,10 @@
     <div class="sidebar">
          <ul id="nav">
 
-             <li><a class="selected" href=""><span class='face'>Dashboard</span>d</a> </li>
+             <li><a class="selected" href=""><span class='face'>Dashboar</span>d</a> </li>
              <li><a href="#">Aviation Statistics</a> </li>
              <li><a href="#tab2">Accounts</a> </li>
-             <li><a href="#tab3">Settings</a> </li>
+             <li><a href="#tab3">Control Tower Settings</a> </li>
              <li><a href="#tab2">Users</a> </li>
 
          </ul>
@@ -59,8 +57,41 @@
 
         <div class="clearfix holder">
             <div class="column left">
-                <div id="uv-div"></div>
-                <canvas id="myChart" width="700" height="400"></canvas>
+
+                <div class="css3-tabstrip">
+                    <ul>
+                        <li>
+                            <input type="radio" name="css3-tabstrip-0" checked="checked" id="css3-tabstrip-0-0" /><label for="css3-tabstrip-0-0">Air Speed Monitoring</label>
+                            <div>
+                                <h1>Air Speed Monitoring</h1>
+
+                                    <canvas id="myChart1" width="700" height="400"></canvas>
+
+                            </div>
+                        </li><li>
+                            <input type="radio" name="css3-tabstrip-0" id="css3-tabstrip-0-1" /><label for="css3-tabstrip-0-1">Altitude Monitoring</label>
+                            <div>
+                                <h1>Altitude Monitoring</h1>
+
+                                <canvas id="myChart2" width="700" height="400"></canvas>
+
+                            </div>
+                        </li><li>
+                            <input type="radio" name="css3-tabstrip-0" id="css3-tabstrip-0-2" /><label for="css3-tabstrip-0-2">Map and Navigation</label>
+                            <div>
+                                <h3>Where does it come from?</h3>
+
+                            </div>
+                        </li><li>
+                            <input type="radio" name="css3-tabstrip-0" id="css3-tabstrip-0-3"  /><label for="css3-tabstrip-0-3">Map and Navigation</label>
+                            <div>
+                                <h3>Where can I get some?</h3>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
             <div class="column right">
                 <h2 id="h2a">Server Log</h2>
@@ -98,7 +129,10 @@ $(document).ready(function() {
 </script>
     
 <script>
+
+
 	listen();
+
 </script>
 
 
