@@ -209,7 +209,8 @@ app.get('/client', function(req, res){
     else if (queryData.action === "DataUpload")
     {
         var cdata ={lg:""+queryData.lg+"",le:""+queryData.le+"",spd:""+queryData.speed+"",alt:""+queryData.altitude+"",pre:""+queryData.pressure+"",vol:""+queryData.voltage+""};
-        var otheddd ={sM:"W",AR:"",Ws:"2"};
+        var otherObject ={sM:"W",AR:"",Ws:"2"};
+        var json = JSON.stringify(otherObject);
         var obj = JSON.parse(JSON.stringify(cdata));
         console.log("Parsed data!!!!");
         console.log("Current Aircraft longitude..."+obj.lg);
@@ -223,12 +224,7 @@ app.get('/client', function(req, res){
 
         io.sockets.emit('new_data',obj);
 
-        //Storing data to mysql
-        // var mysql = require("mysql");
-
-// First you need to create a connection to the db
-
-
+        res.end(json);
 
 
     }
