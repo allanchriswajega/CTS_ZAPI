@@ -54,6 +54,21 @@ var UserDetail = new Schema({
 var UserDetails = mongoose.model('userInfo', UserDetail);
 //---------------------------END OF CODE --------------------------------------
 
+ //------------CLIENT DATA SCHEMA-----------------------------
+          var Client_data_Schema = new Schema({
+                lg : String,
+                le : String,
+                spd : String,
+                pres : String,
+                vol : String,
+                cd_code : String,
+                cd_time: String
+                });
+
+          //2. Create usermodel
+          var Client_new_model = mongoose.model('client_data', Client_data_Schema);
+//--------------------END ----------------------------------------
+
 
 
 
@@ -129,15 +144,23 @@ io.sockets.on('connection', function(socket){
 
 
 
+function send_initial_data(){
+   
+
+}
+
 
 //************************************** ROUTINGS ********************************************************************
 //********************************************************************************************************
 //********************************************************************************************************
 //-----------------------------route to the main page----------------------------------------------------
 app.get('/', function(req,res){
+
 	res.render('index',{isAuthenticated:req.isAuthenticated(),
-		user:req.user
+		user:req.user     
 	});
+
+     
 
 });
 //-------------------------------END OF CODE--------------------------------------------------------------
@@ -152,11 +175,21 @@ app.get('/login',function(req,res){
 
 //--------------------------login for post method---------------------------------------------------------
 app.post('/login', passport.authenticate('local',{
-    successRedirect: '/',
+    successRedirect: '/loginSucess',
     failureRedirect: '/loginFailure'
   })
 );
-//--------------------------- END OF CODE -----------------------------------------------------------------
+//--------------------------- END OF CODE -----------------------------------------------------------
+
+//---------------------LOGIN SUcess------------------------------------------------------------------
+app.get('/loginSucess', function(req, res, next) {
+ 
+        res.redirect('/');
+
+      
+});
+
+//----------------------END OF CODE ---------------------------------
 
 //---------------------------login Failure---------------------------------------------------------------
 app.get('/loginFailure', function(req, res, next) {
@@ -190,6 +223,28 @@ app.get('/client', function(req, res){
             io.sockets.emit('welcome','New Aircraft has loged onto the system');
             io.sockets.emit('new_plane','we have a new plane');
 
+            //inserting into the database with the Aircraft code      
+         //**********************************************************************************
+       
+
+      Client_new_model.find(function (err, data){
+             if (err){
+                 console.error(err);
+                    }
+                  else
+                 {
+                console.error(JSON.parse(JSON.stringify(data)));
+                     io.sockets.emit('welcome','wajega!!!');
+
+                      //sending intial data
+                      io.sockets.emit('init_data',JSON.parse(JSON.stringify(data)));
+
+                 }
+                 
+               });
+     
+       //**********************************************************************************
+
             res.end(json);
 
         }
@@ -208,7 +263,7 @@ app.get('/client', function(req, res){
     //Data Uploaded from the server
     else if (queryData.action === "DataUpload")
     {
-        var cdata ={lg:""+queryData.lg+"",le:""+queryData.le+"",spd:""+queryData.speed+"",alt:""+queryData.altitude+"",pre:""+queryData.pressure+"",vol:""+queryData.voltage+""};
+        var cdata ={lg:queryData.lg,le:queryData.le,spd:queryData.speed,alt:queryData.altitude,pre:queryData.pressure,vol:queryData.voltage,cd_code:"Wac123"};
         var otherObject ={sM:"W",AR:"",Ws:"2"};
         var json = JSON.stringify(otherObject);
         var obj = JSON.parse(JSON.stringify(cdata));
@@ -221,6 +276,44 @@ app.get('/client', function(req, res){
         console.log("Current Aircraft Voltage..."+obj.vol);
 
         io.sockets.emit('welcome','have recieved new data from Aircraft!!');
+
+
+
+
+
+        //Displaying the already stored data in the database
+        Client_new_model.find(function (err, data){
+            if (err){
+                console.error(err);
+            }
+            else
+            {
+                console.error(JSON.parse(JSON.stringify(data)));
+
+
+            }
+        });
+
+
+          //client_data_variable
+          var New_client_data = new Client_new_model(obj);
+
+          //Saving into the database
+          New_client_data.save(function (err, data){
+            if (err){
+                    console.log(err);
+            }
+            else {
+                console.log('Saved : ', data );
+
+            }
+
+          });
+
+
+
+
+
 
         io.sockets.emit('new_data',obj);
 

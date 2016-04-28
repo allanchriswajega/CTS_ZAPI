@@ -21,7 +21,7 @@ function listen (){
 	var ctx1 = document.getElementById("myChart1").getContext("2d");
 	var myLineChart1 = new Chart(ctx1).Line(data1);
 
-
+	
 
 
 
@@ -37,6 +37,29 @@ function listen (){
 
 	});
 	//----------------------END OF CODE ----------------------------------
+
+
+	//---------------Intialisation of chart ----------------------------
+	socket.on('init_data', function(data){
+		$message.append('aaaaaaaaaaaaaaaaaaaaaaaa'+'\n');
+		$message.append(JSON.stringify(data)+'\n');
+
+		for (var i = 0; i < data.length; i++){
+
+			var obj = JSON.parse(JSON.stringify(data[i]));
+			myLineChart1.addData([obj.spd], new Date().getTime());
+		}
+		//var mdata = JSON.parse(JSON.stringify(data));
+		
+	
+		
+		
+
+
+	});
+
+
+	//------------------ END OF CODE ------------------------------------
 
 
 	//--------------------NEW DATA FROM THE AEROPLANE --------------
