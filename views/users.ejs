@@ -1,0 +1,113 @@
+
+
+<html>
+
+<% if (!isAuthenticated) { %>
+<script type="text/javascript">
+    <!--
+    window.location = "./login"
+    //-->
+</script>
+<% } else { %>
+<% } %>
+<head>
+    <title>Zapi Online Control Tower</title>
+    <link rel="stylesheet" type="text/css" href="styles/index.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/client.js"></script>
+    <script type="text/javascript" src="http://www.chartjs.org/assets/Chart.js"></script>
+
+</head>
+
+
+<body >
+
+<div id="header">
+    <div class="logo">
+        <img src = "images/bars.png"  alt = />
+        <a href="#">Zapi<span> Control Tower</span></a>
+    </div>
+    <div class="lout">
+        <a href="/logout">Sign<span>out</a>
+    </div>
+
+</div>
+
+<div id="container">
+    <div class="sidebar">
+        <ul id="nav">
+
+            <li><a class="selected" href=""><span class='face'>Dashboar</span>d</a> </li>
+            <li><a href="#">Aviation Statistics</a> </li>
+            <li><a href="#tab2">Accounts</a> </li>
+            <li><a href="#tab3">Control Tower Settings</a> </li>
+            <li><a href="/users">Users</a> </li>
+
+        </ul>
+    </div>
+    <div class="content">
+        <div id="content-top">
+            <div id="ct-t">
+                <h2>Dashboard</h2>
+            </div>
+        </div>
+
+
+        <div class="clearfix holder">
+            <div class="column left">
+
+
+
+            </div>
+            <div class="column right">
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+</div>
+
+
+</body>
+
+<script >
+    $(document).ready(function() {
+        jQuery('.tabs .tab-links a').on('click', function(e)  {
+            var currentAttrValue = jQuery(this).attr('href');
+
+            // Show/Hide Tabs
+            jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+
+            // Change/remove current tab to active
+            jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+
+            e.preventDefault();
+        });
+    });
+</script>
+
+<script>
+
+
+    listen();
+
+</script>
+
+
+
+
+
+
+
+
+
+</html>
