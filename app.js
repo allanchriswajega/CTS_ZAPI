@@ -141,6 +141,25 @@ io.sockets.on('connection', function(socket){
 
     });
 
+
+
+
+    //-------------------Authentication Request ----------------------------------
+    socket.on('auth', function (data){
+        var obj = JSON.parse(JSON.stringify(data));
+
+        if ((obj.uname ==="wac") && (obj.pword ==="wac")){
+            io.sockets.emit('auth_sucess','null');
+        }
+        else
+        {
+            io.sockets.emit('auth_fail','null');
+
+        }
+
+    });
+    //-----------------------END OF CODE -----------------------------------------
+
 });
 //********************************************************************************************************
 //********************************************************************************************************
