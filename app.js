@@ -181,7 +181,7 @@ io.sockets.on('connection', function(socket){
 
 
     //------------------------------------On New data from plane -------------------
-    socket.on('new_plane_date', function(data){
+    socket.on('new_plane_data', function(data){
 
         var obj = JSON.parse(JSON.stringify(data));
 
