@@ -30,7 +30,10 @@
          <a href="#">Zapi<span> Control Tower</span></a>
      </div>
     <div class="lout">
-        <a href="/logout">Sign<span>out</a>
+        <div id="menu_icon_top">
+            <img src="images/people-1.png" alt="2013 Toyota Tacoma" id="itemImg">
+        </div>
+        <a href="/logout">Sign<span>out</span></a>
     </div>
 
 </div>
@@ -39,11 +42,36 @@
     <div class="sidebar">
          <ul id="nav">
 
-             <li><a class="selected" href="/"><span class='face'>Dashboar</span>d</a> </li>
-             <li><a href="#">Aviation Statistics</a> </li>
-             <li><a href="#">Accounts</a> </li>
-             <li><a href="#">Control Tower Settings</a> </li>
-             <li><a href="/users">Users</a> </li>
+             <li>
+                 <div id="menu_icon_side">
+                     <img src="images/signs.png" alt="2013 Toyota Tacoma" id="itemImg">
+                 </div>
+                      <a class="selected" href="/"><span class='face'>Dashboar</span>d</a>
+             </li>
+             <li>
+                 <div id="menu_icon_side">
+                     <img src="images/up-arrow.png" alt="2013 Toyota Tacoma" id="itemImg">
+                 </div>
+                 <a href="live_track">Aviation Live Tracking</a>
+             </li>
+             <li>
+                 <div id="menu_icon_side">
+                     <img src="images/profile.png" alt="2013 Toyota Tacoma" id="itemImg">
+                 </div>
+                 <a href="#">Accounts</a>
+             </li>
+             <li>
+                 <div id="menu_icon_side">
+                     <img src="images/gear.png" alt="2013 Toyota Tacoma" id="itemImg">
+                 </div>
+                 <a href="#">Control Tower Settings</a>
+             </li>
+             <li>
+                 <div id="menu_icon_side">
+                     <img src="images/people-2.png" alt="2013 Toyota Tacoma" id="itemImg">
+                 </div>
+                 <a href="/users">System Users</a>
+             </li>
 
          </ul>
     </div>
@@ -58,39 +86,9 @@
         <div class="clearfix holder">
             <div class="column left">
 
-                <div class="css3-tabstrip">
-                    <ul>
-                        <li>
-                            <input type="radio" name="css3-tabstrip-0" checked="checked" id="css3-tabstrip-0-0" /><label for="css3-tabstrip-0-0">Air Speed Monitoring</label>
-                            <div>
-                                <h1>Air Speed Monitoring</h1>
+                <h1>Air Speed Monitoring</h1>
 
-                                    <canvas id="myChart1" width="700" height="400"></canvas>
-
-                            </div>
-                        </li><li>
-                            <input type="radio" name="css3-tabstrip-0" id="css3-tabstrip-0-1" /><label for="css3-tabstrip-0-1">Altitude Monitoring</label>
-                            <div>
-                                <h1>Altitude Monitoring</h1>
-
-                                <canvas id="myChart2" width="700" height="400"></canvas>
-
-                            </div>
-                        </li><li>
-                            <input type="radio" name="css3-tabstrip-0" id="css3-tabstrip-0-2" /><label for="css3-tabstrip-0-2">Map and Navigation</label>
-                            <div>
-                                <h3>Where does it come from?</h3>
-
-                            </div>
-                        </li><li>
-                            <input type="radio" name="css3-tabstrip-0" id="css3-tabstrip-0-3"  /><label for="css3-tabstrip-0-3">Map and Navigation</label>
-                            <div>
-                                <h3>Where can I get some?</h3>
-
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                <canvas id="myChart1" width="700" height="400"></canvas>
 
             </div>
             <div class="column right">

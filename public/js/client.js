@@ -17,11 +17,18 @@ function listen (){
 	};
 
 
+
+
+
 	//airspeeb line chart
 	var ctx1 = document.getElementById("myChart1").getContext("2d");
 	var myLineChart1 = new Chart(ctx1).Line(data1);
 
-	
+
+	//-----------Mapping--------------------
+
+	//------------- END OF CODE -------------
+
 
 
 
@@ -50,13 +57,7 @@ function listen (){
 			myLineChart1.addData([obj.spd], new Date().getTime());
 		}
 		//var mdata = JSON.parse(JSON.stringify(data));
-		
-	
-		
-		
-
-
-	});
+		});
 
 
 	//------------------ END OF CODE ------------------------------------
@@ -68,6 +69,17 @@ function listen (){
 
 		//speed graph
 		myLineChart1.addData([obj.spd], new Date().getTime());
+
+		var coords =new google.maps.LatLng(obj.le,obj.lg);
+
+		var mapOptions = {
+			zoom: 16,
+			center: coords
+
+		}
+
+		//Creating Map
+		var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
 
 	});

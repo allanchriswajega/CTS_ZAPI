@@ -72,6 +72,20 @@ ul#nav{
 
 
 }
+div#menu_icon_top{
+	 float: left;
+	 margin-bottom: 10px;
+	 padding-right: 10px;
+	 -webkit-filter: invert(90%);
+ }
+div#menu_icon_side{
+	float: left;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-right: 10px;
+	-webkit-filter: invert(100%);
+	display: block;
+}
 ul#nav li{
 	list-style: none;
 
@@ -103,7 +117,7 @@ ul#nav li a.selected{
 	width: auto;
 	margin-left: 250px;
 	height: 100%;
-	background-color: white;
+	background-color: #ecf0f1	;
 	padding: 15px ;
 	
 
@@ -154,14 +168,21 @@ div#cb_right{
 	color: #d40608;
 	margin: auto;
 	padding-left: 30px;
+
 }
 div#ct-t{
 	margin-top: 14px;
 	margin-left: 35px;
+	font-family: "Century Gothic";
+	font-size: 18px;
+	font-weight: inherit;
 
 }
 
+	#h1{
+		font-family: "Century Gothic";
 
+	}
       #message{
 		  margin-top: 5px;
 		  padding-top: 10px;
@@ -199,25 +220,29 @@ div#ct-t{
 }
 .clearfix:after {
 	clear: both;
+
 }
 .clearfix {
 	*zoom: 1;
 }
 .holder{
 	text-align:center;
+
 }
 .column{
+	border-radius: 10px;
+
 	display:inline-block;
 	*display:inline;
 	*zoom:1;
-	width:auto;
+	width:100%;
 }
 .left{
 	margin-top: 10px;
 	height: 80%;
 	background-color:white;
 	float:left;
-	width: 60%;
+	width:100%;
 }
 .middle{
 	background-color:white;
@@ -233,115 +258,4 @@ div#ct-t{
 div#uv-div{
 	margin-bottom: auto;
 	height: auto;
-}
-
-.css3-tabstrip
-{
-	width: 100%;
-	height: 100%;
-}
-
-.css3-tabstrip ul,
-.css3-tabstrip li
-{
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.css3-tabstrip,
-.css3-tabstrip input[type="radio"]:checked + label
-{
-	position: relative;
-}
-
-.css3-tabstrip li,
-.css3-tabstrip input[type="radio"] + label
-{
-	display: inline-block;
-}
-
-.css3-tabstrip li > div,
-.css3-tabstrip input[type="radio"]
-{
-	position: absolute;
-}
-
-.css3-tabstrip li > div,
-.css3-tabstrip input[type="radio"] + label
-{
-	border: solid 1px #ccc;
-}
-
-.css3-tabstrip
-{
-	font: normal 11px Arial, Sans-serif;
-	color: #404040;
-}
-
-.css3-tabstrip li
-{
-	vertical-align: top;
-}
-
-.css3-tabstrip li:first-child
-{
-	margin-left: 8px;
-}
-
-.css3-tabstrip li > div
-{
-	top: 33px;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	padding: 8px;
-	overflow: auto;
-	background: #fff;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-.css3-tabstrip input[type="radio"] + label
-{
-	margin: 0 2px 0 0;
-	padding: 0 18px;
-	line-height: 32px;
-	background: #f1f1f1;
-	text-align: center;
-	border-radius: 5px 5px 0 0;
-	cursor: pointer;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	user-select: none;
-}
-
-.css3-tabstrip input[type="radio"]:checked + label
-{
-	z-index: 1;
-	background: #fff;
-	border-bottom-color: #fff;
-	cursor: default;
-}
-
-.css3-tabstrip input[type="radio"]
-{
-	opacity: 0;
-}
-
-.css3-tabstrip input[type="radio"] ~ div
-{
-	display: none;
-}
-
-.css3-tabstrip input[type="radio"]:checked:not(:disabled) ~ div
-{
-	display: block;
-}
-
-.css3-tabstrip input[type="radio"]:disabled + label
-{
-	opacity: .5;
-	cursor: no-drop;
 }
