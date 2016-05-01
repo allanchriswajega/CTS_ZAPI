@@ -150,6 +150,24 @@ io.sockets.on('connection', function(socket){
 
         if ((obj.uname ==="wac") && (obj.pword ==="wac")){
             io.sockets.emit('auth_sucess','null');
+            //...............................Sending Intial Data to the the connected user ..........................
+            Client_new_model.find(function (err, data){
+                if (err){
+                    console.error(err);
+                }
+                else
+                {
+                    //console.error(JSON.parse(JSON.stringify(data)));
+                    //io.sockets.emit('welcome','wajega!!!');
+
+                    //sending intial data
+                    io.sockets.emit('init_data',JSON.parse(JSON.stringify(data)));
+
+                }
+
+            });
+
+            //**********************************************************************************
         }
         else
         {
@@ -160,6 +178,38 @@ io.sockets.on('connection', function(socket){
     });
     //-----------------------END OF CODE -----------------------------------------
 
+
+
+    //------------------------------------On New data from plane -------------------
+    socket.on('new_plane_date', function(data){
+
+        var obj = JSON.parse(JSON.stringify(data));
+
+
+        //----------------Saving the recieved data into the data base-----------------------------
+
+        //client_data_variable
+        var New_client_data = new Client_new_model(obj);
+
+        //Saving into the database
+        New_client_data.save(function (err, data){
+            if (err){
+                console.log(err);
+            }
+            else {
+                console.log('Saved : ', data );
+
+            }
+
+        });
+
+        //emiting the recieved data to the client
+        io.sockets.emit('new_data',obj);
+
+        //--------------------------END OF CODE------------------------------------------------------
+
+    });
+    //----------------------------------- END OF CODE -------------------------------
 });
 //********************************************************************************************************
 //********************************************************************************************************
@@ -168,10 +218,6 @@ io.sockets.on('connection', function(socket){
 
 
 
-function send_initial_data(){
-   
-
-}
 
 
 //************************************** ROUTINGS ********************************************************************
@@ -259,7 +305,7 @@ app.get('/client', function(req, res){
             //inserting into the database with the Aircraft code      
          //**********************************************************************************
        
-
+//...............................Sending Intial Data to the the connected user ..........................
       Client_new_model.find(function (err, data){
              if (err){
                  console.error(err);
