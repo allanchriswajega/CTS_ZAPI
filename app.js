@@ -161,7 +161,7 @@ io.sockets.on('connection', function(socket){
                     //io.sockets.emit('welcome','wajega!!!');
 
                     //sending intial data
-                    io.sockets.emit('init_data',JSON.parse(JSON.stringify(data)));
+                //    io.sockets.emit('init_data',JSON.parse(JSON.stringify(data)));
 
                 }
 
