@@ -23,7 +23,7 @@ function listen(){
         //Creating Map
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
         //create a marker
-        var marker = new google.maps.Marker({map:map, position:coords,label:"Location"})
+        var marker = new google.maps.Marker({map:map, position:coords,label:"Location",icon:"/images/airplane.png"})
 
     });
     
