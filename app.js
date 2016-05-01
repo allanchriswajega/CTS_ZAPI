@@ -178,7 +178,11 @@ io.sockets.on('connection', function(socket){
     });
     //-----------------------END OF CODE -----------------------------------------
 
+    setTimeout(function(){
 
+    io.sockets.emit('send_plane_data','now')  ;
+
+    }, 1000);
 
     //------------------------------------On New data from plane -------------------
     socket.on('new_plane_data', function(data){
