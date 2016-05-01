@@ -1,4 +1,267 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700");
 div#map{
     width: 100%;
     height: 100%;
+}
+
+
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: 'Open Sans';
+}
+a {
+    text-decoration: none ;
+}
+div#hr{
+    width: 100%;
+    height: 10px;
+    background-color: rgb(33, 74, 75);
+    margin:0 auto;
+}
+div#header {
+
+    width: 100%;
+    height: 50px;
+    background-color: #2E86C1;
+    position : fixed;
+
+
+}
+.logo {
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+
+}
+.logo a {
+    font-size: 1.8em;
+    color: #ffffff;
+}
+.logo a span {
+    font-size: 0.6em;
+    font-weight: 300;
+
+}
+.lout{
+    float: right;
+    margin-top: 10px;
+    margin-right: 24px;
+}
+.lout a{
+    font-size: 0.98em;
+    color: #ffffff;
+}
+
+div#container{
+    width: 100%;
+    margin: 0 auto;
+
+}
+.sidebar{
+    margin-top: 50.3px;
+    width: 250px;
+    height: 100%;
+    background-color: #17202A;
+    float: left;
+    position : fixed;
+}
+
+ul#nav{
+
+
+}
+div#menu_icon_top{
+    float: left;
+    margin-bottom: 10px;
+    padding-right: 10px;
+    -webkit-filter: invert(90%);
+}
+div#menu_icon_side{
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-right: 10px;
+    -webkit-filter: invert(100%);
+    display: block;
+}
+ul#nav li{
+    list-style: none;
+
+}
+ul#nav li a{
+    color: #ccc;
+    display: block;
+    padding: 10px;
+    font-size: 0.85em;
+    border-bottom: 1px solid rgb(5, 10, 11);
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+
+}
+ul#nav li a:hover{
+    background-color: #2ECC71  ;
+    color: #ffffff;
+    padding-left: 30px ;
+
+
+}
+ul#nav li a.selected{
+    background-color: #2ECC71  ;
+    color: #ffffff;
+}
+.content{
+    width: auto;
+    margin-left: 250px;
+    height: 100%;
+    background-color: #ecf0f1	;
+    padding: 15px ;
+
+
+}
+.content p{
+
+    color: #424242;
+    font-size: 0.93em;
+
+}
+div#content-top{
+    color: #ffffff;
+    margin-top: 40px;
+    width: 100%;
+    background-color: #cc1229;
+    border-radius: 5px;
+    padding-right: 10px;
+
+}
+#content-top p{
+    color: #ffffff;
+}
+div#content-bottom{
+    color: #ffffff;
+    margin-top: 1px;
+    width: 100%;
+    height: 90%;
+    border-radius: 5px;
+    padding-right: 10px;
+    border-style: solid;
+    border-color: #ff0000;
+    border-width: 0.01em;
+}
+div#cb_right{
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-right: 6px;
+    float: right;
+    background-color: #eaefe8;
+    height: 95%;
+    width: 30%;
+    border-radius:5px;
+    position: relative;
+
+}
+#h2a{
+    color: #d40608;
+    margin: auto;
+    padding-left: 30px;
+
+}
+div#ct-t{
+    margin-top: 14px;
+    margin-left: 35px;
+    font-family: "Century Gothic";
+    font-size: 18px;
+    font-weight: inherit;
+
+}
+
+#h1{
+    font-family: "Century Gothic";
+
+}
+#message{
+    margin-top: 5px;
+    padding-top: 10px;
+    padding-left: 20px;
+    margin-left: 5px;
+    border-radius:10px;
+    height: 92%;
+    width: 300px;
+    font-size: 0.9em;
+    color: white;
+
+    background-color: #000000;
+}
+#l1{
+    color: #e74c3c;
+}
+div#footer{
+    float: bottom;
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;;
+    margin-bottom: 12px;
+    background-color: #cc2c2d;
+    position:absolute;
+    bottom:0px;
+    border-radius: 10px;
+
+    position : fixed;
+
+}
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+
+}
+.clearfix {
+    *zoom: 1;
+}
+.holder{
+    text-align:center;
+
+}
+.column{
+    border-radius: 10px;
+
+    display:inline-block;
+    *display:inline;
+    *zoom:1;
+    width:100%;
+}
+.left{
+    margin-top: 10px;
+    height: 80%;
+    background-color:white;
+    float:left;
+    width:100%;
+}
+.middle{
+    background-color:white;
+    margin:0 auto;
+}
+.right{
+    margin-top: 10px;
+    height: 80%;
+    background-color: white;
+    float:right;
+    width: 40%;
+}
+div#uv-div{
+    margin-bottom: auto;
+    height: auto;
 }
