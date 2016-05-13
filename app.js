@@ -59,10 +59,10 @@ var UserDetails = mongoose.model('userInfo', UserDetail);
                 lg : String,
                 le : String,
                 spd : String,
+                alt: String,
                 pres : String,
                 vol : String,
-                cd_code : String,
-                cd_time: String
+                cd_code : String    
                 });
 
           //2. Create usermodel
