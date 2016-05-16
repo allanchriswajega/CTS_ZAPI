@@ -43,7 +43,7 @@ app.use(expressSession({secret: process.env.SESSION_SCRET || 'secret',
 //-------------------mongo database---------------------------------------
 var mongoose = require('mongoose/');
 //mongoose.connect('mongodb://cts:cts123@104.197.33.187:27017/cts');
-mongoose.connect('mongodb://139.162.202.237/cts');
+mongoose.connect('mongodb://139.162.202.237:27017/cts');
 //mongoose.connect('mongodb://127.0.0.1:27017/cts');
 var Schema = mongoose.Schema;
 var UserDetail = new Schema({
