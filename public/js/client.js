@@ -24,18 +24,6 @@ function listen (){
 	var ctx1 = document.getElementById("myChart1").getContext("2d");
 	var myLineChart1 = new Chart(ctx1).Line(data1);
 
-	//altitude line chart
-	var ctx2 = document.getElementById("myChart1").getContext("2d");
-	var myLineChart2 = new Chart(ctx2).Line(data1);
-
-	//temprature line chart
-	var ctx3 = document.getElementById("myChart1").getContext("2d");
-	var myLineChart3 = new Chart(ctx3).Line(data1);
-
-	//voltage line chart
-	var ctx4 = document.getElementById("myChart1").getContext("2d");
-	var myLineChart4 = new Chart(ctx4).Line(data1);
-
 
 	//-----------Mapping--------------------
 
@@ -81,16 +69,6 @@ function listen (){
 
 		//speed graph
 		myLineChart1.addData([obj.spd], new Date().getTime());
-
-
-		//alt graph
-		myLineChart2.addData([1000], new Date().getTime());
-
-		//temp graph
-		myLineChart3.addData([30], new Date().getTime());
-
-		//vol graph
-		myLineChart4.addData([13], new Date().getTime());
 
 		var coords =new google.maps.LatLng(obj.le,obj.lg);
 
