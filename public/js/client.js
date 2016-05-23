@@ -84,13 +84,13 @@ function listen (){
 
 
 		//alt graph
-		myLineChart2.addData([obj.alt], new Date().getTime());
+		myLineChart2.addData([1000], new Date().getTime());
 
 		//temp graph
-		myLineChart3.addData([obj.temp], new Date().getTime());
+		myLineChart3.addData([30], new Date().getTime());
 
 		//vol graph
-		myLineChart4.addData([obj.vol], new Date().getTime());
+		myLineChart4.addData([13], new Date().getTime());
 
 		var coords =new google.maps.LatLng(obj.le,obj.lg);
 
