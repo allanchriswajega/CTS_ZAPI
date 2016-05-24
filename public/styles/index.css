@@ -132,7 +132,7 @@ div#content-top{
 	color: #ffffff;
 	margin-top: 40px;
 	width: 100%;
-	background-color: #1d4546;
+	background-color: #cc1229;
 	border-radius: 5px;
 	padding-right: 10px;
 
@@ -296,8 +296,8 @@ div#fh{
 
 #tabs a {
 	box-shadow: -4px 0 0 rgba(0, 0, 0, .2);
-	background: #ad1c1c;
-	background: linear-gradient(220deg, transparent 10px, #ad1c1c 10px);
+	background: #17202A;
+	background: linear-gradient(220deg, transparent 10px, #17202A 10px);
 	text-shadow: 0 1px 0 rgba(0,0,0,.5);
 	color: #fff;
 	float: left;
@@ -308,8 +308,8 @@ div#fh{
 }
 
 #tabs a:hover {
-	background: #c93434;
-	background: linear-gradient(220deg, transparent 10px, #c93434 10px);
+	background: #17202A;
+	background: linear-gradient(220deg, transparent 10px, #17202A 10px);
 }
 
 #tabs a:focus {
