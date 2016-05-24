@@ -243,7 +243,7 @@ div#ct-t{
 .left{
 	color: #d40608;
 	margin-top: 10px;
-	height: 80%;
+	height: 100%;
 	background-color:white;
 	float:left;
 	width: 60%;
@@ -254,7 +254,7 @@ div#ct-t{
 }
 .right{
 	margin-top: 10px;
-	height: 80%;
+	height: 100%;
 	background-color: white;
 	float:right;
 	width: 40%;
