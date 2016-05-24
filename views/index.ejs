@@ -13,11 +13,13 @@
 <head>
     <title>Makerere International Airport Control Tower</title>
     <link rel="stylesheet" type="text/css" href="styles/index.css"/>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
       <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/client.js"></script>
     <script type="text/javascript" src="http://www.chartjs.org/assets/Chart.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
     
 </head>
 
@@ -100,8 +102,13 @@
                     <div id="tab2">
                         <canvas id="myChart2" width="700" height="400"></canvas>
                     </div>
-                    <div id="tab3">Three - content</div>
-                    <div id="tab4">Four - content</div>
+                    <div id="tab3">
+                        <canvas id="myChart3" width="700" height="400"></canvas>
+
+                    </div>
+                    <div id="tab4">
+                        <canvas id="myChart4" width="700" height="400"></canvas>
+                    </div>
                 </div>
 
 
@@ -161,6 +168,106 @@ $(document).ready(function() {
     
 <script>
 	listen();
+
+</script>
+
+
+
+
+<script>
+    var data3 = {
+        labels: [],
+        datasets: [
+            {
+                label: "Aeroplane Speed",
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#cc1229",
+                pointHighlightFill: "#cc1229",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: []
+            }
+        ]
+    };
+
+
+    var data3 = {
+        labels: [],
+        datasets: [
+            {
+                label: "Aeroplane Speed",
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#cc1229",
+                pointHighlightFill: "#cc1229",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: []
+            }
+        ]
+    };
+
+    var data4 = {
+        labels: [],
+        datasets: [
+            {
+                label: "Aeroplane Speed",
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#cc1229",
+                pointHighlightFill: "#cc1229",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: []
+            }
+        ]
+    };
+
+
+
+      window.onload = function(){
+        //altitude line chart
+        var ctx2 = document.getElementById("myChart2").getContext("2d");
+        var myLineChart2 = new Chart(ctx2).Line(data2);
+
+
+        //temperature line chart
+        var ctx3 = document.getElementById("myChart3").getContext("2d");
+        var myLineChart3 = new Chart(ctx3).Line(data3);
+
+
+        //Voltage line chart
+        var ctx4 = document.getElementById("myChart4").getContext("2d");
+        var myLineChart4 = new Chart(ctx4).Line(data4);
+
+
+    }
+
+    var socket =io.connect();
+    //--------------------NEW DATA FROM THE AEROPLANE --------------
+    socket.on('new_data', function(data){
+        var obj = JSON.parse(JSON.stringify(data));
+
+        //speed graph
+        myLineChart2.addData([obj.spd], new Date().getTime());
+
+        //speed graph
+        myLineChart3.addData([obj.spd], new Date().getTime());
+
+        //speed graph
+        myLineChart4.addData([obj.spd], new Date().getTime());
+
+
+
+
+    });
+
+    //------------------------END OF CODE -------------------------------
+
+
+
+
 
 </script>
 
