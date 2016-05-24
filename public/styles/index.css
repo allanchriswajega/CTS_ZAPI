@@ -273,6 +273,7 @@ div#fh{
 
 
 #tabs {
+	margin-top: 10px;
 	overflow: auto;
 	width: 100%;
 	list-style: none;
