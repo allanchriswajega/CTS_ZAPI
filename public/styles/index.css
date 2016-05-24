@@ -333,5 +333,5 @@ div#fh{
 
 /* Remove the rule below if you want the content to be "organic" */
 #content div {
-	height: 220px;
+	height: 100%;
 }
