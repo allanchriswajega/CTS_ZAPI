@@ -263,6 +263,7 @@ div#uv-div{
 	height: auto;
 }
 div#fh{
+	margin-top: 10px;
 	font-family: "Century Gothic";
 	color: #d40608;
 }
