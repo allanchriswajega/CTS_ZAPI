@@ -226,7 +226,6 @@ $(document).ready(function() {
 
 
 
-      window.onload = function(){
         //altitude line chart
         var ctx2 = document.getElementById("myChart2").getContext("2d");
         var myLineChart2 = new Chart(ctx2).Line(data2);
@@ -255,14 +254,9 @@ $(document).ready(function() {
 
               //speed graph
               myLineChart4.addData([obj.spd], new Date().getTime());
-
-
-
-
           });
 
 
-    }
 
 
 
