@@ -242,7 +242,7 @@ div#ct-t{
 .left{
 	color: #d40608;
 	margin-top: 10px;
-	height: 100%;
+	height: 80%;
 	background-color:white;
 	float:left;
 	width: 60%;
@@ -253,7 +253,7 @@ div#ct-t{
 }
 .right{
 	margin-top: 10px;
-	height: 100%;
+	height: 80%;
 	background-color: white;
 	float:right;
 	width: 40%;
@@ -269,8 +269,8 @@ div#fh{
 }
 
 div#m_header{
-	margin-top: 30px;
-	height: 80px;
+	margin-top: 5px;
+	height: 60px;
 	width: 100%;
 	border-radius: 5px;
 }
@@ -289,7 +289,7 @@ div#m_header{
 
 #tabs {
 	overflow: auto;
-	width: 80%;
+	width: 100%;
 	list-style: none;
 	margin: 0;
 	padding: 0;
