@@ -164,12 +164,7 @@ div#cb_right{
 	position: relative;
 
 }
-#h1a{
-	color: #d40608;
-	margin: auto;
-	padding-left: 30px;
 
-}
 #h2a{
 	color: #d40608;
 	margin: auto;
@@ -187,6 +182,7 @@ div#ct-t{
 
 	#h1{
 		font-family: "Century Gothic";
+		color: #d40608;
 
 	}
       #message{
