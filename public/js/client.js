@@ -33,16 +33,54 @@ function listen (){
     };
 
 
+	var data3 = {
+		labels: [],
+		datasets: [
+			{
+				label: "Aeroplane Speed",
+				fillColor: "rgba(220,220,220,0.2)",
+				strokeColor: "rgba(220,220,220,1)",
+				pointColor: "rgba(220,220,220,1)",
+				pointStrokeColor: "#cc1229",
+				pointHighlightFill: "#cc1229",
+				pointHighlightStroke: "rgba(220,220,220,1)",
+				data: []
+			}
+		]
+	};
+
+	var data4 = {
+		labels: [],
+		datasets: [
+			{
+				label: "Aeroplane Speed",
+				fillColor: "rgba(220,220,220,0.2)",
+				strokeColor: "rgba(220,220,220,1)",
+				pointColor: "rgba(220,220,220,1)",
+				pointStrokeColor: "#cc1229",
+				pointHighlightFill: "#cc1229",
+				pointHighlightStroke: "rgba(220,220,220,1)",
+				data: []
+			}
+		]
+	};
 
 
 	//airspeeb line chart
 	var ctx1 = document.getElementById("myChart1").getContext("2d");
 	var myLineChart1 = new Chart(ctx1).Line(data1);
 
-	//airspeeb line chart
+	//altitude line chart
 	var ctx2 = document.getElementById("myChart2").getContext("2d");
 	var myLineChart2 = new Chart(ctx2).Line(data2);
-	
+
+	//temperature line chart
+	var ctx3 = document.getElementById("myChart3").getContext("2d");
+	var myLineChart3 = new Chart(ctx3).Line(data3);
+
+	//voltage line chart
+	var ctx4 = document.getElementById("myChart4").getContext("2d");
+	var myLineChart4 = new Chart(ctx4).Line(data4);
 	
 	
 
@@ -95,6 +133,10 @@ function listen (){
 		myLineChart1.addData([obj.spd], new Date().getTime());
 
 		myLineChart2.addData([obj.alt], new Date().getTime());
+
+		myLineChart3.addData([obj.vol], new Date().getTime());
+
+		myLineChart4.addData([obj.vol], new Date().getTime());
 
 		var coords =new google.maps.LatLng(obj.le,obj.lg);
 
