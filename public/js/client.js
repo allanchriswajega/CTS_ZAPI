@@ -38,6 +38,12 @@ function listen (){
 	//airspeeb line chart
 	var ctx1 = document.getElementById("myChart1").getContext("2d");
 	var myLineChart1 = new Chart(ctx1).Line(data1);
+
+	//airspeeb line chart
+	var ctx2 = document.getElementById("myChart2").getContext("2d");
+	var myLineChart2 = new Chart(ctx2).Line(data2);
+	
+	
 	
 
 
@@ -87,6 +93,8 @@ function listen (){
 
 		//speed graph
 		myLineChart1.addData([obj.spd], new Date().getTime());
+
+		myLineChart2.addData([obj.spd], new Date().getTime());
 
 		var coords =new google.maps.LatLng(obj.le,obj.lg);
 
