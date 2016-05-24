@@ -94,7 +94,7 @@ function listen (){
 		//speed graph
 		myLineChart1.addData([obj.spd], new Date().getTime());
 
-		myLineChart2.addData([obj.spd], new Date().getTime());
+		myLineChart2.addData([obj.alt], new Date().getTime());
 
 		var coords =new google.maps.LatLng(obj.le,obj.lg);
 
