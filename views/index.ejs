@@ -89,6 +89,22 @@
 
         <div class="clearfix holder">
             <div class="column left">
+
+                <ul id="tabs">
+                    <li><a href="#" title="tab1">One</a></li>
+                    <li><a href="#" title="tab2">Two</a></li>
+                    <li><a href="#" title="tab3">Three</a></li>
+                    <li><a href="#" title="tab4">Four</a></li>
+                </ul>
+
+                <div id="content">
+                    <div id="tab1">One - content</div>
+                    <div id="tab2">Two - content</div>
+                    <div id="tab3">Three - content</div>
+                    <div id="tab4">Four - content</div>
+                </div>
+
+
                 <div id="fh">
                     <h1>Speed Monitoring</h1>
                 </div>
@@ -116,6 +132,22 @@
 
 
 </body>
+<script>
+
+    $(document).ready(function() {
+        $("#content div").hide(); // Initially hide all content
+        $("#tabs li:first").attr("id","current"); // Activate first tab
+        $("#content div:first").fadeIn(); // Show first tab content
+
+        $('#tabs a').click(function(e) {
+            e.preventDefault();
+            $("#content div").hide(); //Hide all content
+            $("#tabs li").attr("id",""); //Reset id's
+            $(this).parent().attr("id","current"); // Activate this
+            $('#' + $(this).attr('title')).fadeIn(); // Show content for current tab
+        });
+    })();
+</script>
 
 <script >
 $(document).ready(function() {
