@@ -39,9 +39,7 @@ function listen (){
 	var ctx1 = document.getElementById("myChart1").getContext("2d");
 	var myLineChart1 = new Chart(ctx1).Line(data1);
 	
-	//altitude graph
-	var ctx2 = document.getElementById("myChart2").getContext("2d");
-	var myLineChart1 = new Chart(ctx2).Line(data2);
+
 
 
 	//-----------Mapping--------------------
@@ -74,7 +72,7 @@ function listen (){
 
 			var obj = JSON.parse(JSON.stringify(data[i]));
 			myLineChart1.addData([obj.spd], new Date().getTime());
-            myLineChart2.addData([obj.spd], new Date().getTime());
+
 		}
 		//var mdata = JSON.parse(JSON.stringify(data));
 		});
@@ -89,9 +87,6 @@ function listen (){
 
 		//speed graph
 		myLineChart1.addData([obj.spd], new Date().getTime());
-
-		//altgraph
-		myLineChart2.addData([obj.spd], new Date().getTime());
 
 		var coords =new google.maps.LatLng(obj.le,obj.lg);
 
