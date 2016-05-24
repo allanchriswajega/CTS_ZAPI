@@ -242,26 +242,29 @@ $(document).ready(function() {
         var myLineChart4 = new Chart(ctx4).Line(data4);
 
 
+          var socket =io.connect();
+          //--------------------NEW DATA FROM THE AEROPLANE --------------
+          socket.on('new_data', function(data){
+              var obj = JSON.parse(JSON.stringify(data));
+
+              //speed graph
+              myLineChart2.addData([obj.spd], new Date().getTime());
+
+              //speed graph
+              myLineChart3.addData([obj.spd], new Date().getTime());
+
+              //speed graph
+              myLineChart4.addData([obj.spd], new Date().getTime());
+
+
+
+
+          });
+
+
     }
 
-    var socket =io.connect();
-    //--------------------NEW DATA FROM THE AEROPLANE --------------
-    socket.on('new_data', function(data){
-        var obj = JSON.parse(JSON.stringify(data));
 
-        //speed graph
-        myLineChart2.addData([obj.spd], new Date().getTime());
-
-        //speed graph
-        myLineChart3.addData([obj.spd], new Date().getTime());
-
-        //speed graph
-        myLineChart4.addData([obj.spd], new Date().getTime());
-
-
-
-
-    });
 
     //------------------------END OF CODE -------------------------------
 
