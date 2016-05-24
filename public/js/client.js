@@ -16,6 +16,21 @@ function listen (){
 		]
 	};
 
+    var data2 = {
+        labels: [],
+        datasets: [
+            {
+                label: "Aeroplane Speed",
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#cc1229",
+                pointHighlightFill: "#cc1229",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: []
+            }
+        ]
+    };
 
 
 
@@ -26,7 +41,7 @@ function listen (){
 	
 	//altitude graph
 	var ctx2 = document.getElementById("myChart2").getContext("2d");
-	var myLineChart1 = new Chart(ctx2).Line(data1);
+	var myLineChart1 = new Chart(ctx2).Line(data2);
 
 
 	//-----------Mapping--------------------
@@ -59,6 +74,7 @@ function listen (){
 
 			var obj = JSON.parse(JSON.stringify(data[i]));
 			myLineChart1.addData([obj.spd], new Date().getTime());
+            myLineChart2.addData([obj.spd], new Date().getTime());
 		}
 		//var mdata = JSON.parse(JSON.stringify(data));
 		});
