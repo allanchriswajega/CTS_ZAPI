@@ -63,6 +63,7 @@ var UserDetails = mongoose.model('userInfo', UserDetail);
                 alt: String,
                 pres : String,
                 vol : String,
+                temp : String,
                 cd_code : String    
                 });
 

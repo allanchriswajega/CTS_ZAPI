@@ -5,7 +5,7 @@ function listen (){
 		datasets: [
 			{
 				label: "Aeroplane Speed",
-				fillColor: "#1abc9c",
+				fillColor: "#f1c40f",
 				strokeColor: "rgba(220,220,220,1)",
 				pointColor: "rgba(220,220,220,1)",
 				pointStrokeColor: "#cc1229",
@@ -38,7 +38,7 @@ function listen (){
 		datasets: [
 			{
 				label: "Aeroplane Speed",
-				fillColor: "#1abc9c",
+				fillColor: "#e67e22",
 				strokeColor: "rgba(220,220,220,1)",
 				pointColor: "rgba(220,220,220,1)",
 				pointStrokeColor: "#cc1229",
@@ -54,7 +54,7 @@ function listen (){
 		datasets: [
 			{
 				label: "Aeroplane Speed",
-				fillColor: "#1abc9c",
+				fillColor: "#9b59b6",
 				strokeColor: "rgba(220,220,220,1)",
 				pointColor: "rgba(220,220,220,1)",
 				pointStrokeColor: "#cc1229",
