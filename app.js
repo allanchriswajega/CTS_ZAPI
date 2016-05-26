@@ -261,9 +261,8 @@ app.get('/live_track', function(req,res){
 });
 //-------------------------------- END OF CODE ---------------------------------------------------------
 //----------------------------------Operations PAGE ---------------------------------------------------------
-app.get('/operations', function(req,res){
-    res.render('operations');
-
+app.get('/operation', function(req,res){
+    res.render('operation');
 });
 //-------------------------------- END OF CODE ---------------------------------------------------------
 
