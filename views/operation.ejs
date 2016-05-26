@@ -1,0 +1,133 @@
+
+
+<html>
+
+<head>
+    <title>Tower Operations</title>
+    <link rel="stylesheet" type="text/css" href="styles/index.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/client.js"></script>
+    <script type="text/javascript" src="http://www.chartjs.org/assets/Chart.js"></script>
+
+</head>
+
+
+<body >
+
+<div id="header">
+    <div class="logo">
+        <img src = "images/bars.png"  alt = />
+        <a href="#">Makerere<span> Control Tower</span></a>
+    </div>
+    <div class="lout">
+        <div id="menu_icon_top">
+            <img src="images/people-1.png" alt="2013 Toyota Tacoma" id="itemImg">
+        </div>
+        <a href="/logout">Chris Allan Wajega | Sign<span>out</span></a>
+    </div>
+
+</div>
+
+<div id="container">
+    <div class="sidebar">
+        <ul id="nav">
+
+            <li>
+                <div id="menu_icon_side">
+                    <img src="images/home2.png" alt="2013 Toyota Tacoma" id="itemImg">
+                </div>
+                <a class="selected" href="/"><span class='face'>Dashboar</span>d</a>
+            </li>
+            <li>
+                <div id="menu_icon_side">
+                    <img src="images/explorer.png" alt="2013 Toyota Tacoma" id="itemImg">
+                </div>
+                <a href="/live_track">Fleet Live Tracking</a>
+            </li>
+            <li>
+                <div id="menu_icon_side">
+                    <img src="images/people-1.png" alt="2013 Toyota Tacoma" id="itemImg">
+                </div>
+                <a href="#">Airline Accounts</a>
+            </li>
+            <li>
+                <div id="menu_icon_side">
+                    <img src="images/poly.png" alt="2013 Toyota Tacoma" id="itemImg">
+                </div>
+                <a href="/operation">Operations</a>
+            </li>
+            <li>
+                <div id="menu_icon_side">
+                    <img src="images/people-2.png" alt="2013 Toyota Tacoma" id="itemImg">
+                </div>
+                <a href="/users">System Users</a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="content">
+        <div id="content-top">
+            <div id="ct-t">
+                <h2>Tower Operations</h2>
+            </div>
+        </div>
+
+
+        <div class="clearfix holder">
+            <div class="column left">
+
+
+
+            </div>
+            <div class="column right">
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+</div>
+
+
+</body>
+
+<script >
+    $(document).ready(function() {
+        jQuery('.tabs .tab-links a').on('click', function(e)  {
+            var currentAttrValue = jQuery(this).attr('href');
+
+            // Show/Hide Tabs
+            jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+
+            // Change/remove current tab to active
+            jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+
+            e.preventDefault();
+        });
+    });
+</script>
+
+<script>
+
+
+    listen();
+
+</script>
+
+
+
+
+
+
+
+
+
+</html>
