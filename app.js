@@ -259,10 +259,13 @@ app.get('/live_track', function(req,res){
     res.render('live_track');
 
 });
-
-
 //-------------------------------- END OF CODE ---------------------------------------------------------
+//----------------------------------Operations PAGE ---------------------------------------------------------
+app.get('/operations', function(req,res){
+    res.render('operations');
 
+});
+//-------------------------------- END OF CODE ---------------------------------------------------------
 
 
 //----------------------------------route to the login page------------------------------------------------
@@ -363,7 +366,7 @@ app.get('/client', function(req, res){
     else if (queryData.action === "DataUpload")
     {
         var cdata ={lg:queryData.lg,le:queryData.le,spd:queryData.speed,alt:queryData.altitude,pre:queryData.pressure,vol:queryData.voltage,cd_code:"Wac123"};
-        var otherObject ={sM:"W",AR:"",Ws:"2"};
+        var otherObject ={sM:"W",AR:"7",Ws:"2"};
         var json = JSON.stringify(otherObject);
         var obj = JSON.parse(JSON.stringify(cdata));
         console.log("Parsed data!!!!");
