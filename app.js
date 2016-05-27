@@ -211,7 +211,7 @@ io.sockets.on('connection', function(socket){
 
         //emiting the recieved data to the client
 
-
+        io.sockets.emit('new_data',obj);
         setInterval(function () {
             io.sockets.emit('new_data',obj);
             io.sockets.emit('send_plane_data','now')  ;
