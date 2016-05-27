@@ -180,11 +180,11 @@ io.sockets.on('connection', function(socket){
     });
     //-----------------------END OF CODE -----------------------------------------
 
-    function sendPlanedata(){
+    //function sendPlanedata(){
         io.sockets.emit('send_plane_data','now')  ;
-    }
+    //}
 
-    setInterval(sendPlanedata,30000);
+    //setInterval(sendPlanedata,30000);
 
 
 
@@ -216,7 +216,7 @@ io.sockets.on('connection', function(socket){
         io.sockets.emit('new_data',obj);
 
         setInterval(function () {
-           // io.sockets.emit('send_plane_data','now')  ;
+            io.sockets.emit('send_plane_data','now')  ;
         }, 900000);
 
 
