@@ -180,9 +180,12 @@ io.sockets.on('connection', function(socket){
     });
     //-----------------------END OF CODE -----------------------------------------
 
+    function sendPlanedata(){
+        io.sockets.emit('send_plane_data','now')  ;
+    }
 
+    setTimeout(sendPlanedata,30000);
 
-    io.sockets.emit('send_plane_data','now')  ;
 
 
 
