@@ -213,7 +213,7 @@ io.sockets.on('connection', function(socket){
         io.sockets.emit('new_data',obj);
 
         setInterval(function () {
-            io.sockets.emit('send_plane_data','now')  ;
+           // io.sockets.emit('send_plane_data','now')  ;
         }, 900000);
 
 
