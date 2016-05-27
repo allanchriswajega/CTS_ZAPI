@@ -184,7 +184,7 @@ io.sockets.on('connection', function(socket){
         io.sockets.emit('send_plane_data','now')  ;
     }
 
-    setTimeout(sendPlanedata,30000);
+    setInterval(sendPlanedata,30000);
 
 
 
